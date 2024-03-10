@@ -2,7 +2,9 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $db = "twitterv";
+    // $db = "twitterv";
+    $db="twitterdb";
+
 
     $conn = new mysqli($servername, $username, $password, $db);
 

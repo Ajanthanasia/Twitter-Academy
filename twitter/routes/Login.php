@@ -18,7 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $_SESSION["login"] = true;
                 $_SESSION["userDetails_Twit"] = $row;
                 // echo "<script>alert('Create Successful!');</script>";
-                header("Location: ../Pages/MainPage.php");
+                // header("Location: ../Pages/MainPage.php");
+                // header("Location: ../Pages/home/index.php");
+                $username = $row['username'];
+                $id = $row['id'];
+                header("Location: ../Pages/home/index.php?name=$username&id=$id");
                 exit;
             } else {
                 echo "<script>alert('Wrong Password');</script>";
