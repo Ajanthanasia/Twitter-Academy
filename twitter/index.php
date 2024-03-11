@@ -23,7 +23,7 @@
         <div class="popup popup_signIn">
             <div class="close_btn">&times;</div>
             <div class="form">
-                <h2>Sign In to app</h2>
+                <h2>Sign In to app </h2>
                 <div class="form-element">
                     <input type="text" id="user_email_username" name="user_email_username" placeholder="email or username ">
                 </div>
