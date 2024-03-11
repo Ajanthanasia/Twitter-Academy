@@ -2,8 +2,8 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    // $db = "twitterv";
-    $db="twitterdb";
+    $db = "twitterv";
+    // $db="twitterdb";
 
     $conn = new mysqli($servername, $username, $password, $db);
 

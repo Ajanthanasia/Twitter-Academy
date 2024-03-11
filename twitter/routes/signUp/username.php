@@ -1,5 +1,5 @@
 <?php
-include("databaseConnection.php");
+include("../databaseConnection.php");
 if(isset($_POST['username_at'])){
     $username_at=$_POST['username_at'];
 

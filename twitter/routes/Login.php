@@ -20,9 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 // echo "<script>alert('Create Successful!');</script>";
                 // header("Location: ../Pages/MainPage.php");
                 // header("Location: ../Pages/home/index.php");
-                $username = $row['username'];
-                $id = $row['id'];
-                header("Location: ../Pages/home/index.php?name=$username&id=$id");
+                header("Location: ../Pages/home/index.php");
                 exit;
             } else {
                 echo "<script>alert('Wrong Password');</script>";

@@ -1,4 +1,4 @@
-use twitterdb;
+use twitterv;
 
 CREATE TABLE `blocked` (
     `id_user` int NOT NULL,

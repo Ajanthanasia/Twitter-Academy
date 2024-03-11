@@ -12,9 +12,9 @@ $('#Username_create').on('keyup', function () {
     var number = $("#number_username");
     var length = $("#length_username");
     // var ind=-1;
-    console.log(userInput)
+    // console.log(userInput)
     $.ajax({
-        url: "username.php",
+        url: "routes/signUp/username.php",
         type: "POST",
         data: {'username_at':userInput},
         success: function(res) {

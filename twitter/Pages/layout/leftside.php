@@ -1,6 +1,10 @@
 <?php
-$username = $_GET['name'];
-$id = $_GET['id'];
+session_start();
+if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
+    $user = $_SESSION['userDetails_Twit'];
+    $username=$user['at_user_name'];
+    $id=$user['id'];
+}
 ?>
 <div class="mb-4 mt-4">
     <div class="row mb-2">

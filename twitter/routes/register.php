@@ -6,7 +6,6 @@ function For_picture($profile_pic, $username,$temp_name){
     $imageExtension = strtolower(end($imageExtension));
     $newImageName = $username . "-" . date("Y.m.d") . "-" . date("h.i.sa");
     $newImageName .= "." . $imageExtension; // corrected concatenation operator
-
     move_uploaded_file($temp_name, '../scripts/img/profile/'.$newImageName);
     return $newImageName;
 }
@@ -17,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $username = $_POST["username"];
         $email = $_POST["email"];
         $dob = $_POST["dob"];
-        echo $dob;
         $psw = $_POST["password"];
 
         $profile_pic = $_FILES["profile_pic"]["name"];
@@ -53,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["login"] = true;
             $_SESSION["userDetails_Twit"] = $row;
             // echo "<script>alert('Create Successful!');</script>";
-            header("Location: ../Pages/MainPage.php");
+            header("Location: ../Pages/home/index.php");
         }
     } else {
         // Handle case when request method is not POST

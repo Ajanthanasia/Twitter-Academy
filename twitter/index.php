@@ -19,7 +19,7 @@
 
     <!-- For Sign In  -->
     <form action="routes/Login.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="action" id="action" value="login">
+    <input type="hidden" name="action"  value="login">
         <div class="popup popup_signIn">
             <div class="close_btn">&times;</div>
             <div class="form">
@@ -61,7 +61,7 @@
         </div>
     </form>
     <form action="routes/register.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="action" id="action" value="register">
+        <input type="hidden" name="action"  value="register">
         <input type="hidden" name="access" value="1">
         <input type="hidden" name="bio">
         <input type="hidden" name="city">
@@ -80,6 +80,7 @@
                     <label for="email">email</label>
                     <input type="email" id="email_create" name="email" placeholder="Enter the email">
                     <p id="error_email" style="display: none;">fill email</P>
+                    <p id="duplicate_email" style="display: none;">Useremail was Already has been taken!</P>
                 </div>
                 <label for="dob"><b>Date Of Birth</b></label>
                 <br>
@@ -186,6 +187,7 @@
     <script src="scripts/js/username.js"></script>
     <script src="scripts/js/dob.js"></script>
     <script src="scripts/js/SIgnIn_varify.js"></script>
+    <script src="scripts/js/mailVarify.js"></script>
     <script>
         $("#Click_next_step3").click(function() {
             $(".popup_step3").addClass("active");

@@ -47,7 +47,6 @@ $("#Click_next_step2").click(function() {
     var month = $("#month").val();
     var date = $("#date").val();
     var year = $("#year").val();
-
     if (email=="" || name==""||month=="" || date=="" || year==""){
         $('#error_non').css({"display":"block","color":"red"});
     }
