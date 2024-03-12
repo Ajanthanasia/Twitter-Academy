@@ -1,4 +1,5 @@
 <?php
+
 include("databaseConnection.php");
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $id = $_GET['id'];
@@ -7,5 +8,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $user = mysqli_fetch_assoc($queryLoad);
     $username = $user['username'];
     $mail = $user['mail'];
-    header("Location: ./../Pages/profile/profile.php?id=$id&name=$username&mail=$mail");
+    header("Location: ./../Pages/profile/profile.php");
 }

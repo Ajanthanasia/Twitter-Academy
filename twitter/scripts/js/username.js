@@ -65,9 +65,22 @@ if (ind === 0) {
 }
 
 });
-
+// $("#form_login").submit(function(event) {
+    
+//     event.preventDefault(); // Prevent default form submission behavior
+//     $("form").submit();
+//     // Your validation logic here
+//     // if (validationPasses) {
+//     //     // If validation passes, submit the form
+//         // $(this).unbind('submit').submit(); // Unbind the submit handler to avoid infinite loop
+//     //  }// else {
+//     //     // If validation fails, display error messages or take appropriate action
+//     //     console.log("Validation failed, form not submitted.");
+//     // }
+// });
 $("#Click_next_step5").click(function () {
-    $("form").submit();
+    // $("form").submit();
+    $("form_login").submit();
     // console.log("here")
 
     // window.location.href = "Pages/MainPage.php";

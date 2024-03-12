@@ -1,7 +1,3 @@
-// $("#submit_profile").click(function(){
-//     var profile=$("#photo").val();
-// });
-
 $("input[name='profile_pic']").change(function(e) {
     var profile = $("#photo")[0];
     profile.src = URL.createObjectURL(e.target.files[0]);

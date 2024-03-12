@@ -2,42 +2,35 @@
 session_start();
 include("databaseConnection.php");
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Check if name and fname are set in the POST data
-    if (isset($_POST["action"]) == 'login') {
+if ($_SERVER["REQUEST_METHOD"] === "POST" ) {
+    // Check if name and fname are set in the GET data
+    
+    if (isset($_POST["action_login"]) == 'login') {
         // Access the name and fname values sent via AJAX
-        $user_email_username = $_POST["user_email_username"];
-        $psw = $_POST["password"];
-
+        $email_or_username = $_POST["email_or_username"];
+        $hashedPassword = $_POST["hashedPassword"];
         // Check if email already exists
-        $user = mysqli_query($conn, "SELECT * FROM user WHERE mail='$user_email_username' or at_user_name='@$user_email_username'");
+        $user = mysqli_query($conn, "SELECT * FROM user WHERE mail='$email_or_username' or at_user_name='@$email_or_username'");
         // $deleteUser=mysqli_query($conn,"SELECT * FROM deactive_account WHERE email='$email'");
         if (mysqli_num_rows($user) > 0) {
             $row = mysqli_fetch_assoc($user);
-            if (!password_verify($psw, $row['password'])) {
+            if($hashedPassword==$row["password"]) {
                 $_SESSION["login"] = true;
                 $_SESSION["userDetails_Twit"] = $row;
-                // echo "<script>alert('Create Successful!');</script>";
-                // header("Location: ../Pages/MainPage.php");
-                // header("Location: ../Pages/home/index.php");
-                header("Location: ../Pages/home/index.php");
+                echo "Login Successfull";
                 exit;
             } else {
-                echo "<script>alert('Wrong Password');</script>";
-                header("Location: ../index.php");
+                echo 'Wrong Password';
                 exit;
             }
-            // echo "User email has already been taken!";
-            // exit;
         } else {
-            echo "<script>alert('User not Registered');</script>";
-            header("Location: ../index.php");
+            echo 'User not Registered';
             exit;
         }
-    } else {
-        // Handle case when request method is not POST
-        echo "<script>alert('Invalid request method. Only POST requests are allowed');</script>";
-        header("Location: ../index.php");
-        exit;
-    }
+    } 
+}
+else {
+    // Handle case when request method is not GET
+    echo 'Invalid request method. Only GET requests are allowed';
+    exit;
 }

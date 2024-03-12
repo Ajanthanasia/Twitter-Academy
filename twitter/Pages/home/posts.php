@@ -2,7 +2,15 @@
 <div class="mt-4 mb-4">
     <div class="row">
         <div class="col-md-2">
-            <img class='img-fluid img-circle' src='./../../scripts/img/profile/girl.jpg' />
+            <?php
+            if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
+                $user = $_SESSION['userDetails_Twit'];
+                $profilePicture = !empty($user['profile_picture']) ? $user['profile_picture'] : 'download.png';
+            ?>
+                <img class='img-fluid img-circle' src="../../scripts/img/profile/<?php echo $profilePicture; ?>" alt="Profile Picture" />
+            <?php
+            }
+            ?>
         </div>
         <div class="col-md-10">
             <textarea class='form-control' placeholder='What is happening?!' rows='3'></textarea>

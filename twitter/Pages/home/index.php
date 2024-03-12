@@ -1,12 +1,15 @@
 <?php
+session_start();
+// Boostrap include line
 include('./../layout/app.php');
-echo "<div class='container'>";
-echo "<div class='row'>";
-echo "<div class='col-md-3'>";
-include('./../layout/leftside.php');
-echo "</div>";
-echo "<div class='col-md-6'>";
-include('./posts.php');
-echo "</div>";
-echo "</div>";
-echo "</div>";
+?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <?php include('./../layout/leftside.php'); ?>
+        </div>
+        <div class='col-md-6'>
+            <?php include('./posts.php'); ?>
+        </div>
+    </div>
+</div>

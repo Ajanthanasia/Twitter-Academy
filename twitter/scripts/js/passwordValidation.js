@@ -47,3 +47,5 @@ $("#password_create").keyup(function () {
         $('#Click_next_step3').addClass("disabled");
     }
 });
+
+

@@ -30,6 +30,6 @@ session_start(); // Start the session
         } else {
             echo "<h1>You are not logged in</h1>";
         }
-        ?>
+        ?> 
 </body>
 </html>
