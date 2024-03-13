@@ -1,5 +1,4 @@
 <?php
-session_start();
 // Boostrap include line
 include('./../layout/app.php');
 if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
