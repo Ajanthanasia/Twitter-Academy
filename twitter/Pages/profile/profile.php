@@ -5,6 +5,7 @@ if($_SESSION['userDetails_Twit']=="Logout"){
     header("location:../../index.php");
 }
 ?>
+<link rel="stylesheet" href="../../scripts/css/afterSignin/rightside.css">
 <div class="container">
     <div class="row">
         <div class="col-md-3">

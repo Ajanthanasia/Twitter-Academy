@@ -6,7 +6,9 @@ if($_SESSION['userDetails_Twit']=="Logout"){
 }
 // Boostrap include line
 include('./../layout/app.php');
+
 ?>
+<link rel="stylesheet" href="../../scripts/css/index.css">
 <div class="container">
     <div class="row">
         <div class="col-md-3">

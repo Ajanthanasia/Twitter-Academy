@@ -2,14 +2,7 @@
 session_start();
 include("databaseConnection.php");
 
-function For_picture($profile_pic, $username,$temp_name){
-    $imageExtension = explode('.', $profile_pic);
-    $imageExtension = strtolower(end($imageExtension));
-    $newImageName = $username . "-" . date("Y.m.d") . "-" . date("h.i.sa");
-    $newImageName .= "." . $imageExtension; // corrected concatenation operator
-    move_uploaded_file($temp_name, '../scripts/img/profile/'.$newImageName);
-    return $newImageName;
-}
+
 // $var= isset($_POST["action_register"]) == 'register';
 // echo $var."---here var";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -30,7 +23,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $city = $_POST["city"];
         $campus = $_POST["campus"];
         $img_banner = "";
-
+        function For_picture($profile_pic, $username,$temp_name){
+            $imageExtension = explode('.', $profile_pic); 
+            $imageExtension = strtolower(end($imageExtension)); 
+            $newImageName = $username . "-" . date("Y.m.d") . "-" . date("h.i.sa"); 
+            $newImageName .= "." . $imageExtension; 
+            move_uploaded_file($temp_name, '../scripts/img/profile/'.$newImageName);
+            return $newImageName;
+        }
         $img_profile = "";
         if ($profile_pic !== "") {
             $img_profile = For_picture($profile_pic, $username, $profile_pic_tmp);

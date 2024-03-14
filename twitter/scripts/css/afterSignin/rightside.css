@@ -1,0 +1,20 @@
+#profile{
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: '50%' !important;
+}
+#folow_button{
+    border-radius: 20px;
+    background-color: black;
+    color:white;
+}
+#username{
+ 
+ font-size: 18px;
+ font-weight: bold;
+}
+#username_at{
+    font-size: 18px;
+    font-weight: 5;
+    color: rgb(134, 133, 130);
+}
