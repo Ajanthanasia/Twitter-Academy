@@ -12,7 +12,7 @@ $("#logoutButton").click(function(e){
             
         },
         error: function(xhr, status, error) {
-            console.error(error);
+            // console.error(error);
             // Optionally, you can display an error message to the user
             alert("An error occurred while logging out. Please try again later.");
         }

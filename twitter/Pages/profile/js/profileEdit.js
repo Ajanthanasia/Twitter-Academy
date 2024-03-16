@@ -1,9 +1,8 @@
 $("#Edit_Profile_step1").click(function(){
-    console.log("here");
-    $('.popup_Edit_step1').addClass("active");
+    $('.popup_Edit_step1').addClass("active_profile");
 });
 $(".popup_Edit_step1 .close_btn").click(function () {
-    $(".popup_Edit_step1").removeClass("active");
+    $(".popup_Edit_step1").removeClass("active_profile");
 });
 
 $("input[name='profile_pic']").change(function(e) {
