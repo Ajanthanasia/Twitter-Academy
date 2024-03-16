@@ -70,7 +70,10 @@
                         <button class="btn btn-warning form-control">Comment</button>
                     </div>
                     <div class="col-md-3">
-                        <button class="btn btn-info form-control">Retweet</button>
+                        <!-- <a href="./../retweet/index.php"> -->
+                        <a href="./../../routes/loadRetweetView.php?tid=<?php echo $tweetId; ?>">
+                            <button class="btn btn-info form-control">Retweet</button>
+                        </a>
                     </div>
                 </div>
             </div>
