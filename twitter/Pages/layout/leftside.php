@@ -1,9 +1,4 @@
-<?php
-if($_SESSION['userDetails_Twit']=="Logout"){
-    echo "<script>alert('helo logout');</script>";
-    header("location:../../index.php");
-}
-?> 
+<!--   -->
 <div class="mb-4 mt-4">
     <div class="row mb-2">
         <div class="col-md-4">
