@@ -1,16 +1,16 @@
 <?php
-        $q = "SELECT * FROM `user`
+        $quary_of_follower = "SELECT * FROM `user`
                 WHERE not user.id = $My_id and 
                 user.id NOT IN (SELECT follow.id_follow from `follow` WHERE follow.id_user=$My_id)";
-        $getusers = mysqli_query($conn, $q);
-        if (mysqli_num_rows($getusers) > 0) {
+                $getuser_follower = mysqli_query($conn, $quary_of_follower);
+        if (mysqli_num_rows($getuser_follower) > 0) {
         ?>
             <h4>You Might Follow</h4>
             <div class="col-md-3">
                 <table>
                     <?php
-                    while ($i = mysqli_fetch_assoc($getusers)) {
-                        $id = $i['id'];
+                    while ($i = mysqli_fetch_assoc($getuser_follower)) {
+                        $id_follower = $i['id'];
                         $at_user_name = $i['at_user_name'];
                         $username = $i['username'];
                         $profilePicture = $i['profile_picture'];
@@ -28,8 +28,7 @@
 
                             </th>
                             <th>
-                            <input class="btn  folow_button" type="button" onclick="following(<?php echo $user['id']; ?>, <?php echo $id; ?>)" value="Follow">
-                                <!-- <div class="folow_button" class="btn" onclick="following()" data-userId="<?php echo $user['id']; ?>" data-Id_follow="<?php echo $id; ?>">Folow</div> -->
+                            <input class="btn  folow_button" type="button" onclick="following(<?php echo $My_id; ?>, <?php echo $id_follower; ?>)" value="Follow">
                             </th>
                         </tr>
 

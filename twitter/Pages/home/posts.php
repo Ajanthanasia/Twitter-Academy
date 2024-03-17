@@ -1,8 +1,14 @@
 <link rel='stylesheet' href='./posts.css'>
+<?php
+if (!$_SESSION['login']) {
+    header("location:home/index.php");
+}
+?>
 <div class="mt-4 mb-4">
     <div class="row">
         <div class="col-md-2">
             <?php
+
             if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
                 $user = $_SESSION['userDetails_Twit'];
                 $profilePicture = !empty($user['profile_picture']) ? $user['profile_picture'] : 'download.png';
@@ -13,7 +19,7 @@
             ?>
         </div>
         <div class="col-md-10">
-            <textarea name='tweet' class='form-control' placeholder='What is happening?!' rows='3'></textarea>
+            <textarea name='tweet' id="tweetTextarea" class='form-control' placeholder='What is happening?!' rows='3'></textarea>
             <span class='post-error'></span>
         </div>
     </div>
@@ -86,9 +92,36 @@
 <input type="hidden" id="userId" value="<?php echo $_SESSION['userDetails_Twit']['id']; ?>">
 
 <script language="javascript">
+    var hashtagsArray=[];
+    $('#tweetTextarea').keyup(function() {
+        var tweet = $("[name='tweet']").val();
+        var hashtags = tweet.match(/#\w+/g);
+        
+        if (hashtags) {
+            // Loop through each hashtag found
+            hashtags.forEach(function(tag) {
+                hashtagsArray.push(tag);
+                // $.ajax({
+                //     url: "./../../routes/hastagavailable.php",
+                //     method: 'post',
+                //     data: {
+                //         tag: tag,
+                //     },
+                //     dataType: 'html',
+                //     success: function(res) {
+                //         console.log(res);
+                //     }
+                // });
+                
+            });
+        }
+        console.log(hashtagsArray);
+
+    });
     $(document).on('click', '.submit-tweet', function() {
         var userId = $('#userId').val();
         var tweet = $("[name='tweet']").val();
+
         if (tweet == '' || tweet == null) {
             $('.post-error').text('This field is required');
         } else if (tweet.length > 140) {
@@ -101,6 +134,7 @@
                 data: {
                     tweet: tweet,
                     userId: userId,
+                    'hashtagsArray':hashtagsArray,
                 },
                 dataType: 'html',
                 success: function(res) {

@@ -11,7 +11,7 @@
             },
             dataType: 'html',
             success: function(res) {
-                if (res == '1') {
+                if (res === "like") {
                     alert('Liked successfully');
                 } else {
                     alert('You already Liked this tweet');

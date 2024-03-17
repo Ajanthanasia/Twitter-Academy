@@ -25,6 +25,7 @@ $tweetId = $tweet['tweetId'];
         </div>
     </div>
     <div class="row">
+        
         <div class="col-md-2">
             <img class="img-fluid circle" src="./../../scripts/img/profile/<?php echo $dp; ?>" alt="dp">
         </div>
@@ -64,6 +65,7 @@ $tweetId = $tweet['tweetId'];
             dataType: 'html',
             success: function(res) {
                 alert(res);
+                window.location.href = "../profile/profile.php";
             }
         });
     });

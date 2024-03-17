@@ -2,11 +2,17 @@
 session_start();
 // Boostrap include line
 include('./../layout/app.php');
+if (!$_SESSION['login']){
+    if($_SESSION['userDetails_Twit']=="Logout"){
+        header("location:../index.php");
+    }
+}
 if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
     $user = $_SESSION['userDetails_Twit'];
     $profilePicture = !empty($user['profile_picture']) ? $user['profile_picture'] : 'download.png';
     $bannerPicture = !empty($user['banner']) ? $user['banner'] : 'bannerDefault.png';
     $date = date('Y-m-d', strtotime($user['creation_time']));
+    $My_id=$user['id']
 ?>
 <!-- modify start -->
 <link rel="stylesheet" href="../../scripts/css/afterSignin/rightside.css">
@@ -90,7 +96,7 @@ if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
             </div>
         </div>
     <?php
-}
+
     ?>
     </div>
 
@@ -204,6 +210,15 @@ if (isset($_SESSION['login']) && isset($_SESSION['userDetails_Twit'])) {
 
     </div>
     </form>
+                    <hr>
+    <?php
+        include('php/createdPost.php');
+?> <hr> <?php
+        include('php/retweetPost.php');
+    }
+    ?>
+    <hr>
+    
     <script src="js/profileEdit.js"></script>
     <script src="js/ageVarification.js"></script>
     <script src="js/access.js"></script>
