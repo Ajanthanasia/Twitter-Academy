@@ -92,31 +92,18 @@ if (!$_SESSION['login']) {
 <input type="hidden" id="userId" value="<?php echo $_SESSION['userDetails_Twit']['id']; ?>">
 
 <script language="javascript">
-    var hashtagsArray=[];
+    var hashtagsArrayGlobal = [];
     $('#tweetTextarea').keyup(function() {
         var tweet = $("[name='tweet']").val();
         var hashtags = tweet.match(/#\w+/g);
-        
+        var hashtagsArray = [];
         if (hashtags) {
             // Loop through each hashtag found
             hashtags.forEach(function(tag) {
                 hashtagsArray.push(tag);
-                // $.ajax({
-                //     url: "./../../routes/hastagavailable.php",
-                //     method: 'post',
-                //     data: {
-                //         tag: tag,
-                //     },
-                //     dataType: 'html',
-                //     success: function(res) {
-                //         console.log(res);
-                //     }
-                // });
-                
             });
         }
-        console.log(hashtagsArray);
-
+        hashtagsArrayGlobal=hashtagsArray
     });
     $(document).on('click', '.submit-tweet', function() {
         var userId = $('#userId').val();
@@ -126,7 +113,9 @@ if (!$_SESSION['login']) {
             $('.post-error').text('This field is required');
         } else if (tweet.length > 140) {
             $('.post-error').text('No more exists 140 characters');
+
         } else {
+            // console.log(hashtagsArrayGlobal,"---");
             $('.post-error').empty();
             $.ajax({
                 url: "./../../routes/postStore.php",
@@ -134,12 +123,13 @@ if (!$_SESSION['login']) {
                 data: {
                     tweet: tweet,
                     userId: userId,
-                    'hashtagsArray':hashtagsArray,
+                    "hashtagsArray":hashtagsArrayGlobal,
                 },
+                
                 dataType: 'html',
                 success: function(res) {
-                    console.log(res);
                     alert('Tweet added successfully');
+                    // window.location.href = 'index.php';
                     setTimeout(() => {
                         window.location.href = './index.php';
                     }, 2000);
