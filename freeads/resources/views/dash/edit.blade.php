@@ -1,17 +1,20 @@
 @extends('dash.layout')
 @section('dash')
-    <form action="{{ route('user.update') }}" method="post">
-        @csrf
-        <div>
-            <label for="">Name</label>
-            <input type="text" name="name" value="{{ Auth::user()->name }}">
-        </div>
-        <div>
-            <label for="">Email</label>
-            <input type="text" name="email" value="{{ Auth::user()->email }}">
-        </div>
-        <div>
-            <button type="submit"> Update</button>
-        </div>
-    </form>
+<form action="{{ route('user.update') }}" method="post">
+    @csrf
+    <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" name="name" value="{{ Auth::user()->name }}" required>
+    </div>
+   
+    <div class="row"> 
+        <i class="fas fa-user"></i>
+        <input type="text" name="email" value="{{ Auth::user()->email }}" required>
+    </div>
+    
+    <div class="row button">
+        <input type="submit" value="Update">
+    </div>
+    
+</form>
 @endsection

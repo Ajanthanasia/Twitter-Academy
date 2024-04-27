@@ -1,21 +1,22 @@
 @extends('dash.layout')
 @section('dash')
-    <form action="{{ route('ad.add.store') }}" method="post">
-        @csrf
-        <div>
-            <label for="">Title</label>
-            <input type="text" name="title" required>
-        </div>
-        <div>
-            <label for="">Description</label>
-            <input type="text" name="description" required>
-        </div>
-        <div>
-            <label for="">Price</label>
-            <input type="decimal" name="price" required>
-        </div>
-        <div>
-            <button type="submit">Create Ad</button>
-        </div>
-    </form>
+<form action="{{ route('ad.add.store') }}" method="post">
+    @csrf
+    <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" name="title" placeholder="Enter the title" required>
+    </div>
+    <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="text" name="description" placeholder="Enter the Description" required>
+    </div>
+    <div class="row">
+        <i class="fas fa-user"></i>
+        <input type="decimal" name="price" placeholder="Enter the Price" required>
+    </div>
+    <div class="row button">
+        <input type="submit" value="Create Ad">
+    </div>
+    
+</form>
 @endsection

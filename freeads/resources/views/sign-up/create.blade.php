@@ -7,7 +7,7 @@
         <i class="fas fa-user"></i>
         <input type="text" name="name" placeholder="Enter Name" required>
     </div>
-    <div class="row">
+    <div class="row"> 
         <i class="fas fa-user"></i>
         <input type="text" name="email" placeholder="Email or Phone" required>
     </div>

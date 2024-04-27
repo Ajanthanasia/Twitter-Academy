@@ -1,31 +1,14 @@
 @extends('layout')
 @section('content')
     <style>
-        .leftside-bar {
-            width: 150px;
-            border: 1px grey solid;
-            border-radius: 10px;
-            padding: 10px;
-            float: left;
-        }
-
         .rightside {
-            float: left;
+             margin-left: 250px;
             width: 500px;
             padding: 10px;
         }
     </style>
-    <div class="container">
-        <div class="wrapper">
-            <div class="card">
-                <h3>Free ads Dashboard</h3>
-            </div>
-            <hr>
-        </div>
-    </div>
-
     <div class="row">
-        <div class="leftside-bar">
+        <div class="sidebar">
             @include('dash.side-bar')
         </div>
         <div class="rightside">
