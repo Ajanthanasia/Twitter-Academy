@@ -18,6 +18,6 @@
      <button>my Ads</button>
  </a>
  <hr>
- <a href="#">
-    <button>Search</button>
+ <a href="{{ route('search.index') }}">
+     <button>Search</button>
  </a>
