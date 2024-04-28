@@ -24,7 +24,8 @@ class AdAddController extends Controller
             $announce->description = $request->description;
             $announce->price = $request->price;
             $announce->save();
-            return redirect()->back()->with('success', 'Ad added');
+            // return redirect()->back()->with('success', 'Ad added');
+            return redirect()->route('ad.all.edit', ['ad_id' => $announce->id]);
         } catch (Throwable $th) {
             DB::rollBack();
             return redirect()->back();

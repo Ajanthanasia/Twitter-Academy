@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use App\Models\Photograph;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -22,7 +23,8 @@ class AdAllController extends Controller
         try {
             $adId = $request->ad_id;
             $ad = Announcement::where('id', $adId)->first();
-            return view('dash.ad.edit', compact('ad'));
+            $imgs = Photograph::where("announce_id", $adId)->get();
+            return view('dash.ad.edit', compact('ad', 'imgs'));
         } catch (Throwable $th) {
             DB::rollBack();
             return redirect()->back();
@@ -62,8 +64,13 @@ class AdAllController extends Controller
         try {
             $id = $request->ad_id;
             $file = $request->file('photo');
-            Storage::disk('local')->put('img.jpg', $file);
-            dd($id, $file);
+            $imgPath = Storage::disk('public')->put('imgs/' . $id, $file);
+            $img = new Photograph();
+            $img->user_id = Auth::id();
+            $img->announce_id = $id;
+            $img->photograph = $imgPath;
+            $img->save();
+            return redirect()->back()->with('success', 'img saved');
         } catch (Throwable $th) {
             DB::rollBack();
             dd($th);
