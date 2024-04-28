@@ -61,3 +61,46 @@
 .ad-container button:hover {
     background-color: #f0f0f0;
 }
+
+/* search  */
+/* Style for the search form */
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.search-container button.search {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button.search:hover {
+    background-color: #0056b3;
+}
+
+/* Style for each individual ad */
+.ad-container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.ad-container div {
+    margin-bottom: 5px;
+}
+
+.ad-container span {
+    font-weight: bold;
+}
+

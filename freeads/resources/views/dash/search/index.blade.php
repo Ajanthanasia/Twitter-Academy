@@ -1,7 +1,7 @@
 @extends('dash.layout')
 @section('dash')
-    <div>
-        Search
+    <div class="search-container">
+        <div>Search</div>
         <form action="{{ route('search.index') }}" method="get">
             @csrf
             <div>
@@ -11,7 +11,7 @@
         </form>
     </div>
     @foreach ($ads as $ad)
-        <div>
+        <div class="ad-container">
             <div>Title : <span>{{ $ad->title }}</span></div>
             <div>Description : <span>{{ $ad->description }}</span></div>
             <div>Price : <span> Rs.{{ $ad->price }} /=</span></div>

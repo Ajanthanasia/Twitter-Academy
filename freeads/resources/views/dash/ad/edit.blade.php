@@ -21,8 +21,8 @@
     
 </form>
 
-<hr>
-<form action="{{ route('ad.photo.upload') }}" method="post" enctype="multipart/form-data">
+<!-- <hr> -->
+<!-- <form action="{{ route('ad.photo.upload') }}" method="post" enctype="multipart/form-data">
     @csrf
     <label for="">Photo Upload</label>
     <div class="row button">
@@ -31,5 +31,5 @@
     <div class="row button">
     <input type="submit" value="Upload">
     </div>
-</form>
+</form> -->
 @endsection
